@@ -222,10 +222,10 @@ input::-moz-focus-inner {
   box-sizing: border-box;
 }
 html {
-  font-size: 62.5%;
+  font-size: 50%;
 }
 body {
-  background: #d4d4d4;
+  background: #fff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: 'Open Sans', sans-serif;
@@ -243,7 +243,7 @@ h4,
 h5,
 h6 {
   font-weight: normal;
-  font-family: 'haymakerregular', sans-serif;
+  font-family: sans-serif;
 }
 h2 {
   text-align: center;
@@ -317,7 +317,7 @@ header.top h3:after {
   top: auto;
   bottom: 7px;
 }
-.catch-of-the-day {
+.giftopy {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -329,7 +329,7 @@ header.top h3:after {
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
 }
-.catch-of-the-day > * {
+.giftopy > * {
   -webkit-box-flex: 1;
       -ms-flex: 1 4 auto;
           flex: 1 4 auto;
@@ -342,7 +342,7 @@ header.top h3:after {
   box-shadow: 0 5px 5px rgba(0,0,0,0.1);
   overflow: scroll;
 }
-.catch-of-the-day > *:first-child {
+.giftopy > *:first-child {
   -ms-flex-negative: 1;
       flex-shrink: 1;
   -ms-flex-preferred-size: 50%;
@@ -350,14 +350,14 @@ header.top h3:after {
   -webkit-transform: translateX(50%) rotateY(6deg) translateX(-50%);
           transform: translateX(50%) rotateY(6deg) translateX(-50%);
 }
-.catch-of-the-day > *:nth-child(2) {
+.giftopy > *:nth-child(2) {
   -webkit-transform: translateX(-50%) rotateY(-14deg) translateX(50%);
           transform: translateX(-50%) rotateY(-14deg) translateX(50%);
   border-left: 0;
   border-right: 0;
   min-width: 300px;
 }
-.catch-of-the-day > *:last-child {
+.giftopy > *:last-child {
   -ms-flex-negative: 1;
       flex-shrink: 1;
   -ms-flex-preferred-size: 50%;
@@ -365,7 +365,7 @@ header.top h3:after {
   -webkit-transform: translateX(-50%) rotateY(10deg) translateX(50%) scale(1.08) translateX(24px);
           transform: translateX(-50%) rotateY(10deg) translateX(50%) scale(1.08) translateX(24px);
 }
-input#fold:not(:checked) ~ #App .catch-of-the-day > * {
+input#fold:not(:checked) ~ #main .giftopy > * {
   -webkit-transform: none;
           transform: none;
 }
@@ -560,7 +560,7 @@ input[type=submit]:after {
   content: '';
   z-index: -1;
   display: block;
-  background: #000;
+  background: #6ecdef;
   position: absolute;
   width: 100%;
   height: 0;
