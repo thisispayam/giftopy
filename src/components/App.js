@@ -8,7 +8,7 @@ class App extends React.Component{
         return(
             <div className="giftopy">
                 <div className="menu">
-                    <Header />
+                    <Header tagline="Gift for your loved ones"/>
                 </div>
                 <Order />
                 <Inventory />
