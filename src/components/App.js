@@ -4,7 +4,7 @@ import Order from './Order';
 import Inventory from './Inventory';
 import sampleGifts from '../sample-gifts.js';
 import Gift from './Gift';
-
+import base from '../base';
 
 class App extends React.Component{
     constructor(){
@@ -18,6 +18,16 @@ class App extends React.Component{
             gifts:{},
             order:{}
         };
+    }
+    
+    componentWillMount(){
+        this.ref = base.syncState(`${this.props.params.storeId}/gifts`,{
+            context:this,
+            state:'gifts'
+        });
+    }
+    componentWillUnmount(){
+        base.removeBinding(this.ref);
     }
     addGift(gift){
         //update our state
