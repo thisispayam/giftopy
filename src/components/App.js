@@ -19,13 +19,29 @@ class App extends React.Component{
             order:{}
         };
     }
-    
+
     componentWillMount(){
+      //this runs right before the <App> is rendered
         this.ref = base.syncState(`${this.props.params.storeId}/gifts`,{
             context:this,
             state:'gifts'
         });
+      // check if there is any order in localStorage
+        const localStorageRef = localStorage.getItem(`order-${this.props.params.storeId}`);
+
+        if(localStorageRef){
+          //update our App component's order state
+          this.setState({
+            order: JSON.parse(localStorageRef)
+          });
+        }
     }
+
+    componentWillUpdate(nextProps, nextState){
+      console.log({nextProps, nextState});
+      localStorage.setItem(`order-${this.props.params.storeId}`,JSON.stringify(nextState.order));
+    }
+
     componentWillUnmount(){
         base.removeBinding(this.ref);
     }
@@ -60,12 +76,16 @@ class App extends React.Component{
                         {
                             Object
                                 .keys(this.state.gifts)
-                                .map(key => <Gift key={key} index={key} details={this.state.gifts[key]} addToOrder = {this.addToOrder} />) 
+                                .map(key => <Gift key={key} index={key} details={this.state.gifts[key]} addToOrder = {this.addToOrder} />)
                         }
                     </ul>
                 </div>
-                
-                <Order gifts={this.state.gifts} order={this.state.order}/>
+
+                <Order
+                  gifts={this.state.gifts}
+                  order={this.state.order}
+                  params={this.props.params}/>
+
                 <Inventory addGift={this.addGift} loadSamples={this.loadSamples} />
             </div>
         )
