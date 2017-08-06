@@ -11,8 +11,11 @@ class App extends React.Component{
         super();
         //binding our methods 'this' to the App
         this.addGift = this.addGift.bind(this);
+        this.removeGift = this.removeGift.bind(this);
         this.loadSamples = this.loadSamples.bind(this);
         this.addToOrder = this.addToOrder.bind(this);
+        this.removeFromOrder = this.removeFromOrder.bind(this);
+
         //getInitialState
         this.state = {
             gifts:{},
@@ -54,6 +57,17 @@ class App extends React.Component{
         //set state
         this.setState ({gifts});
     }
+    removeGift(key){
+      const gifts = {...this.state.gifts};
+      //delete gifts ordered from Inventory and Firebase;
+      gifts[key]=null;
+      this.setState({gifts});
+    }
+    updateGift = (key, updatedGift) => {
+      const gifts = {...this.state.gifts};
+      gifts[key] = updatedGift;
+      this.setState({ gifts });
+    };
     loadSamples(){
         this.setState({
             gifts: sampleGifts
@@ -64,6 +78,14 @@ class App extends React.Component{
         const order = {...this.state.order};
         //update/add the new number of gifts ordered
         order[key] = order[key] + 1 || 1;
+        // update our state
+        this.setState({order});
+    }
+    removeFromOrder(key){
+        //take a copy of our state
+        const order = {...this.state.order};
+        //delete gifts ordered from order list and localStorage;
+        delete order[key];
         // update our state
         this.setState({order});
     }
@@ -84,9 +106,10 @@ class App extends React.Component{
                 <Order
                   gifts={this.state.gifts}
                   order={this.state.order}
-                  params={this.props.params}/>
+                  params={this.props.params}
+                  removeFromOrder={this.removeFromOrder}/>
 
-                <Inventory addGift={this.addGift} loadSamples={this.loadSamples} />
+                <Inventory addGift={this.addGift} removeGift={this.removeGift} loadSamples={this.loadSamples} gifts={this.state.gifts} updateGift={this.updateGift}/>
             </div>
         )
     }
