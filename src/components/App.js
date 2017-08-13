@@ -107,7 +107,7 @@ class App extends React.Component{
                   gifts={this.state.gifts}
                   order={this.state.order}
                   params={this.props.params}
-                  removeFromOrder={this.removeFrom}/>
+                  removeFromOrder={this.removeFromOrder}/>
 
                 <Inventory addGift={this.addGift} removeGift={this.removeGift} loadSamples={this.loadSamples} gifts={this.state.gifts} updateGift={this.updateGift}/>
             </div>
