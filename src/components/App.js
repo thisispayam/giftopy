@@ -109,12 +109,13 @@ class App extends React.Component{
                   params={this.props.params}
                   removeFromOrder={this.removeFromOrder}/>
 
-                <Inventory addGift={this.addGift} removeGift={this.removeGift} loadSamples={this.loadSamples} gifts={this.state.gifts} updateGift={this.updateGift}/>
+                <Inventory addGift={this.addGift} removeGift={this.removeGift} loadSamples={this.loadSamples} gifts={this.state.gifts} updateGift={this.updateGift} storeId={this.props.params.storeId}/>
             </div>
         )
     }
 }
 App.propTypes = {
-  params: React.PropTypes.object.isRequired
+  params: React.PropTypes.object.isRequired,
+  storeId: React.PropTypes.string.isRequired
 };
 export default App;
