@@ -15,10 +15,14 @@ class Gift extends React.Component {
                 </h3>
             <p>{details.desc}</p>
             <button onClick={() => this.props.addToOrder(index)} disabled={!isAvailable}>{buttonText}</button>
-                
+
             </li>
         )
     }
 }
-
+Gift.propTypes = {
+  index: React.PropTypes.string.isRequired,
+  details: React.PropTypes.object.isRequired,
+  addToOrder: React.PropTypes.func.isRequired
+};
 export default Gift;

@@ -48,4 +48,9 @@ class Order extends React.Component {
     }
 }
 
+Order.propTypes = {
+  gifts: React.PropTypes.object.isRequired,
+  order: React.PropTypes.object.isRequired,
+  removeFromOrder: React.PropTypes.func
+};
 export default Order;

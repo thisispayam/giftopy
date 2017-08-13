@@ -14,7 +14,7 @@ class AddGiftForm extends React.Component {
         this.props.addGift(gift);
         this.giftForm.reset();
     }
-    
+
     render(){
         return(
             <form ref={(input) => this.giftForm = input} className="gift-edit" onSubmit={(e) => this.createGift(e)}>
@@ -32,4 +32,7 @@ class AddGiftForm extends React.Component {
     }
 }
 
+AddGiftForm.propTypes = {
+  addGift: React.PropTypes.func.isRequired
+};
 export default AddGiftForm;
