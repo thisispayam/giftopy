@@ -333,7 +333,7 @@ header.top h3:after {
       -ms-flex: 1 4 auto;
           flex: 1 4 auto;
   padding: 2rem;
-  border: 1rem double #1a1a1a;
+  border: 1rem double #0093b2;
   position: relative;
   background: #fff;
   -webkit-transition: all 0.3s;

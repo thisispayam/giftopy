@@ -93,7 +93,7 @@ class App extends React.Component{
         return(
             <div className="giftopy">
                 <div className="menu">
-                    <Header tagline="Vacation deals and promotions"/>
+                    <Header tagline="Gifts for your loved ones"/>
                     <ul className="list-of-gifts">
                         {
                             Object
@@ -116,6 +116,6 @@ class App extends React.Component{
 }
 App.propTypes = {
   params: React.PropTypes.object.isRequired,
-  storeId: React.PropTypes.string.isRequired
+  storeId: React.PropTypes.string
 };
 export default App;

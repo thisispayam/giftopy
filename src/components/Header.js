@@ -4,7 +4,7 @@ const Header = (props) => {
 
     return(
         <header className="top">
-            <h1>Air Canada Vacations</h1>
+            <h1>Giftopy</h1>
             <h3 className="tagline"><span>{props.tagline}</span></h3>
         </header>
     )
